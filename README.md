@@ -23,7 +23,7 @@ This introduces changes to both configuration and generated code. The changes ma
 
 Add wsdl2phpgenerator to your project using [composer](https://getcomposer.org/doc/00-intro.md):
 ```bash
-composer require wsdl2phpgenerator/wsdl2phpgenerator
+composer require ttbooking/wsdl2phpgenerator
 ```
 
 ## Contributors
