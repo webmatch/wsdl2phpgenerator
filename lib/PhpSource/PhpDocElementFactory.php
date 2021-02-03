@@ -13,7 +13,7 @@ use Exception;
  * Class that contains static methods to create preset doc elements.
  *
  * @author Fredrik Wallgren <fredrik.wallgren@gmail.com>
- * @license http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 class PhpDocElementFactory
 {

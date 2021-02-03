@@ -13,7 +13,7 @@ use Exception;
  * Class that represents the source code for a class in php.
  *
  * @author Fredrik Wallgren <fredrik.wallgren@gmail.com>
- * @license http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 class PhpClass extends PhpElement
 {

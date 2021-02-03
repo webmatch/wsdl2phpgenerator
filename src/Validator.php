@@ -12,7 +12,7 @@ namespace Wsdl2PhpGenerator;
  * Contains functionf for validating Type, Classname and Naming convention.
  *
  * @author Fredrik Wallgren <fredrik.wallgren@gmail.com>
- * @license http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 class Validator
 {
@@ -231,7 +231,7 @@ class Validator
                 return 'string';
                 break;
             case 'datetime':
-                return  '\DateTime';
+                return '\DateTime';
                 break;
             default:
                 $typeName = self::validateNamingConvention($typeName);

@@ -276,7 +276,7 @@ class CodeGenerationTestCase extends TestCase
      * @param ReflectionParameter|string $parameter The parameter or the name of it
      * @param int                        $position  the expected position (from 0) of the parameter in the list of parameters for the method
      */
-    protected function assertMethodHasParameter(\ReflectionMethod $method, $parameter, $position = null, $type = null)
+    protected function assertMethodHasParameter(ReflectionMethod $method, $parameter, $position = null, $type = null)
     {
         $parameterName = ($parameter instanceof ReflectionParameter) ? $parameter->getName() : $parameter;
 
@@ -332,7 +332,7 @@ class CodeGenerationTestCase extends TestCase
      * @param string           $parameterName the name of the parameter
      * @param string           $type          the name of the expected type
      */
-    protected function assertMethodParameterHasType(\ReflectionMethod $method, $parameterName, $type)
+    protected function assertMethodParameterHasType(ReflectionMethod $method, $parameterName, $type)
     {
         $this->assertMethodHasParameter($method, $parameterName);
 
@@ -368,7 +368,7 @@ class CodeGenerationTestCase extends TestCase
      * @param string           $parameterName the name of the parameter
      * @param string           $type          the name of the expected type
      */
-    protected function assertMethodParameterDocBlockHasType(\ReflectionMethod $method, $parameterName, $type)
+    protected function assertMethodParameterDocBlockHasType(ReflectionMethod $method, $parameterName, $type)
     {
         // Attempt to do some simple extraction of type declaration from the
         // DocBlock.
@@ -397,7 +397,7 @@ class CodeGenerationTestCase extends TestCase
      * @param ReflectionMethod $method the method to test
      * @param string           $type   the expected return type
      */
-    protected function assertMethodHasReturnType(\ReflectionMethod $method, $type)
+    protected function assertMethodHasReturnType(ReflectionMethod $method, $type)
     {
         // Attempt to do some simple extraction of type declaration from the
         // DocBlock.
