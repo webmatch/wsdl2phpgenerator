@@ -124,7 +124,7 @@ class ServiceOperationFilterTest extends TestCase
             $bookType,
             $requestSetVersion,
         ];
-        $service = new Service($this->config, 'Book_Shell', $types, 'Book shells');
+        $service = new Service($this->config, 'Book_Shell', $types, 'Book shells', $this->config->get('inputFile'));
         $service->addOperation($getBookOperation);
         $service->addOperation($getAuthorsOperator);
         $service->addOperation($setVersionOperator);

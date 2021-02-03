@@ -84,12 +84,12 @@ class Generator implements GeneratorInterface
         if (is_array($wsdl)) {
             foreach ($wsdl as $ws) {
                 $this->load($ws);
+                $this->savePhp();
             }
         } else {
             $this->load($wsdl);
+            $this->savePhp();
         }
-
-        $this->savePhp();
 
         $this->log('Generation complete', 'info');
     }
@@ -106,18 +106,20 @@ class Generator implements GeneratorInterface
         $this->types = [];
 
         $this->loadTypes();
-        $this->loadService();
+        $this->loadService($wsdl);
     }
 
     /**
      * Loads the service class.
+     *
+     * @param string $wsldUrl
      */
-    protected function loadService()
+    protected function loadService($wsldUrl)
     {
         $service = $this->wsdl->getService();
         $this->log('Starting to load service '.$service->getName());
 
-        $this->service = new Service($this->config, $service->getName(), $this->types, $service->getDocumentation());
+        $this->service = new Service($this->config, $service->getName(), $this->types, $service->getDocumentation(), $wsldUrl);
 
         foreach ($this->wsdl->getOperations() as $function) {
             $this->log('Loading function '.$function->getName());

@@ -78,7 +78,7 @@ class ServiceOperationFilter implements FilterInterface
         // Remove duplicated using standard equality checks. Default string
         // comparison does not work here.
         $types           = array_unique($types, SORT_REGULAR);
-        $filteredService = new Service($this->config, $service->getIdentifier(), $types, $service->getDescription());
+        $filteredService = new Service($this->config, $service->getIdentifier(), $types, $service->getDescription(), $service->getWsdl());
         // Pull created service with operations
         foreach ($operations as $operation) {
             $filteredService->addOperation($operation);

@@ -52,16 +52,23 @@ class Service implements ClassGenerator
     private $types;
 
     /**
+     * @var string a link to wsdl used when generate class
+     */
+    private $wsdl;
+
+    /**
      * @param ConfigInterface $config      Configuration
      * @param string          $identifier  The name of the service
      * @param array           $types       The types the service knows about
      * @param string          $description The description of the service
+     * @param string          $wsld        a link to wsdl
      */
-    public function __construct(ConfigInterface $config, $identifier, array $types, $description)
+    public function __construct(ConfigInterface $config, $identifier, array $types, $description, $wsld)
     {
         $this->config      = $config;
         $this->identifier  = $identifier;
         $this->description = $description;
+        $this->wsdl        = $wsld;
         $this->operations  = [];
         $this->types       = [];
         foreach ($types as $type) {
@@ -136,6 +143,16 @@ class Service implements ClassGenerator
     }
 
     /**
+     * Return url to wsdl.
+     *
+     * @return string
+     */
+    public function getWsdl()
+    {
+        return $this->wsdl;
+    }
+
+    /**
      * Generates the class if not already generated.
      */
     public function generateClass()
@@ -165,7 +182,7 @@ class Service implements ClassGenerator
   }'.PHP_EOL;
         $source .= '  $options = array_merge('.var_export($this->config->get('soapClientOptions'), true).', $options);'.PHP_EOL;
         $source .= '  if (!$wsdl) {'.PHP_EOL;
-        $source .= '    $wsdl = \''.$this->config->get('inputFile').'\';'.PHP_EOL;
+        $source .= '    $wsdl = \''.$this->wsdl.'\';'.PHP_EOL;
         $source .= '  }'.PHP_EOL;
         $source .= '  parent::__construct($wsdl, $options);'.PHP_EOL;
 
